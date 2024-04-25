@@ -29,7 +29,7 @@ def func_line_time(f):
 @func_line_time
 def cross_validation_ad(dataset, features, res_dict, model=None, save_path='./model.pkl', ):
 
-    X = pd.read_csv(r'./dataset/{}/df.csv'.format(dataset))
+    X = pd.read_csv(r'./dataset/df.csv'.format(dataset))
     X = pd.DataFrame(X, columns=features)
 
     X = X.sample(frac=1.0)
@@ -101,7 +101,7 @@ def cross_validation_ad(dataset, features, res_dict, model=None, save_path='./mo
 @func_line_time
 def cross_validation_mfd(dataset, features_mfd_rfe_rf_final, res_dict, model=None, save_path='./model.pkl'):
 
-    X = pd.read_csv(r'./dataset/{}/df.csv'.format(dataset))
+    X = pd.read_csv(r'./dataset/df.csv'.format(dataset))
     X = pd.DataFrame(X, columns=features_mfd_rfe_rf_final)
 
     X_mal = X[X['label'] == 1]
@@ -215,10 +215,10 @@ if __name__ == '__main__':
 
     new_f = ['bytes_mean', 'ip_uniq_ratio',  'speed', 'dport_uniq_ratio']
     res_dict = {'acc': [], 'f1': [], 'recall': [], 'precision': []}
-    cross_validation_ad('iot-23-gate', new_f + ['label'], res_dict, model=[rf], save_path='pkl/ad.pkl')
+    cross_validation_ad(new_f + ['label'], res_dict, model=[rf], save_path='pkl/ad.pkl')
     print(res_dict)
 
     new_f = ['bytes_mean', 'ssh', 'speed', 'http', 'sport_uniq_ratio']
     res_dict = {'acc': [], 'f1': [], 'recall': [], 'precision': []}
-    cross_validation_mfd('iot-23-gate', new_f + ['family', 'label'], res_dict, model=[rf], save_path='pkl/mfd.pkl')
+    cross_validation_mfd(new_f + ['family', 'label'], res_dict, model=[rf], save_path='pkl/mfd.pkl')
     print(res_dict)

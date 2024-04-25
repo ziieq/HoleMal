@@ -84,7 +84,7 @@ def main_read(gen, metedata_collector, feature_extractor, ad, mfd, logger):
 
 
 if __name__ == '__main__':
-    listener_or_read = 0
+    listener_or_read = 1
     isMFD = True
     ad = joblib.load('pkl/ad.pkl')
     mfd = joblib.load('pkl/mfd.pkl')
