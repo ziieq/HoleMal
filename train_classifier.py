@@ -27,9 +27,9 @@ def func_line_time(f):
 
 
 @func_line_time
-def cross_validation_ad(dataset, features, res_dict, model=None, save_path='./model.pkl', ):
+def cross_validation_ad(features, res_dict, model=None, save_path='./model.pkl', ):
 
-    X = pd.read_csv(r'./dataset/df.csv'.format(dataset))
+    X = pd.read_csv(r'./dataset/df.csv')
     X = pd.DataFrame(X, columns=features)
 
     X = X.sample(frac=1.0)
@@ -99,9 +99,9 @@ def cross_validation_ad(dataset, features, res_dict, model=None, save_path='./mo
 
 
 @func_line_time
-def cross_validation_mfd(dataset, features_mfd_rfe_rf_final, res_dict, model=None, save_path='./model.pkl'):
+def cross_validation_mfd(features_mfd_rfe_rf_final, res_dict, model=None, save_path='./model.pkl'):
 
-    X = pd.read_csv(r'./dataset/df.csv'.format(dataset))
+    X = pd.read_csv(r'./dataset/df.csv')
     X = pd.DataFrame(X, columns=features_mfd_rfe_rf_final)
 
     X_mal = X[X['label'] == 1]
