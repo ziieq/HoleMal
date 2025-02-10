@@ -28,5 +28,5 @@ df_maker.py (results are already in dataset folder) -> ./detector_constructor/co
 example_pcap2csv.py and run_time_test.py can be run directly, but the source code for extracting features needs to be modified according to the scene.
 
 # Other Large Files
-We shared large files (processed datasets) on https://drive.google.com/drive/folders/1bJThgSdmBgW74QVLZqAx3wx5XlUizJ6P?usp=drive_link
+We shared large files on https://drive.google.com/drive/folders/1bJThgSdmBgW74QVLZqAx3wx5XlUizJ6P?usp=drive_link
 
