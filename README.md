@@ -1,0 +1,26 @@
+# Introduction
+HoleMal is a lightweight host-level NIDS for resource constrained environments. 
+
+HoleMal provides a comprehensive suite of host-level traffic monitoring, processing, and detection solutions, aiming to achieve optimal network protection with minimal resource cost.
+
+# Important Files
+**df_maker.py:** This file is used to convert the pcap datasets into csv datasets for subsequent model training and testing.
+
+**example_pcap2csv.py:** This file implements HoleMal's process of extracting features from one pcap to csv. This file uses all host-level features. In the actual deployment, the a file needs to be run first to obtain the best feature subset, so as to improve the detection capability and detection speed in the specified scenario.
+
+**main_experiment.py:** This file is used to test the metrics of HoleMal on various datasets with different chunk sizes.
+
+**robust_experiment.py:** This file is used to test the HoleMal detection capability under different packet loss rates.
+
+**run_time_test.py:**  This file is used to test the running efficiency of HoleMal. In our paper, this script is run on a resource constrained device.
+
+**./detector_constructor/cost-sensitive_feature_selector/CoseSelector/pso.py:** This file is the script to run the Cost-Sensitive Feature Selector, which is responsible for selecting the feature subset with high classification ability and low time loss.
+
+**./detector_constructor/cost-sensitive_model_selector/cost-sensitive_model_selector.py:** This file is the script to run the Cost-sensitive Model Selector, which is responsible for selecting the classification model with high detection capability and low time cost.
+
+**dataset:** This folder includes processed HoleMal samples (results of df_maker.py) that are available for experimental use.
+
+# Flow of Execution
+df_maker.py (results are already in dataset folder) -> ./detector_constructor/cost-sensitive_feature_selector/CoseSelector/pso.py (results are already in feature_subset_dict in subsequent scripts) -> main_experiment.py -> robust_experiment.py
+
+example_pcap2csv.py and run_time_test.py can be run directly, but the source code for extracting features needs to be modified according to the scene.
