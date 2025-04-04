@@ -6,7 +6,9 @@ HoleMal provides a comprehensive suite of host-level traffic monitoring, process
 # Important Files
 **df_maker.py:** This file is used to convert the pcap datasets into csv datasets for subsequent model training and testing.
 
-**example_pcap2csv.py:** This file implements HoleMal's process of extracting features from one pcap to csv. This file uses all host-level features. In the actual deployment, the a file needs to be run first to obtain the best feature subset, so as to improve the detection capability and detection speed in the specified scenario.
+**example_pcap2csv_single_thread.py:** (example_pcap2csv_multi_process.py is recommended.) This file implements HoleMal's process of extracting features from one pcap to csv. This file uses all host-level features. In the actual deployment, the a file needs to be run first to obtain the best feature subset, so as to improve the detection capability and detection speed in the specified scenario.
+
+**example_pcap2csv_multi_process.py:** Same function as example_pcap2csv_single_thread.py, but with multi-process acceleration.
 
 **main_experiment.py:** This file is used to test the metrics of HoleMal on various datasets with different chunk sizes.
 
